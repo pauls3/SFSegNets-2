@@ -53,7 +53,7 @@ __C.DATASET.KITTI_AUG_DIR = ''
 # __C.DATASET.BDD_DIR = './data/bdd'
 # IDD Dataset
 # __C.DATASET.IDD_DIR = './data/IDD'
-__C.DATASET.RAILSEM19 = '/home/stanik/rtis_lab/data/RailSem19/custom_split'
+# __C.DATASET.RAILSEM19 = '/home/stanik/rtis_lab/data/RailSem19/custom_split'
 __C.DATASET.RTISRAIL22 = '/home/stanik/rtis_lab/data/rtis-rail-2022/custom_split'
 
 #Number of splits to support

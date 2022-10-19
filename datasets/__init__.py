@@ -9,7 +9,7 @@ from datasets import cityscapes
 # from datasets import bdd
 # from datasets import idd
 # from datasets import merged_auto_dataset
-from datasets import railsem19
+# from datasets import railsem19
 from datasets import rtisrail22
 import torchvision.transforms as standard_transforms
 
@@ -72,13 +72,13 @@ def setup_loaders(args):
             args.val_batch_size = args.bs_mult_val * args.ngpu
         else:
             args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'railsem19':
-        args.dataset_cls = railsem19
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
+    # elif args.dataset == 'railsem19':
+    #     args.dataset_cls = railsem19
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
     elif args.dataset == 'rtisrail22':
         args.dataset_cls = rtisrail22
         args.train_batch_size = args.bs_mult * args.ngpu
@@ -323,23 +323,23 @@ def setup_loaders(args):
     #         cv_split=args.cv,
     #         scf=None)
 
-    elif args.dataset == 'railsem19':
-        train_set = args.dataset_cls.RailSem19(
-            'semantic', 'train',
-            joint_transform_list=train_joint_transform_list,
-            transform=train_input_transform,
-            target_transform=target_train_transform,
-            dump_images=args.dump_augmentation_images,
-            class_uniform_pct=args.class_uniform_pct,
-            class_uniform_tile=args.class_uniform_tile,
-            test=args.test_mode
-        )
-        val_set = args.dataset_cls.RailSem19(
-            'semantic', 'val',
-            joint_transform_list=None,
-            transform=val_input_transform,
-            target_transform=target_transform,
-            test=False)
+    # elif args.dataset == 'railsem19':
+    #     train_set = args.dataset_cls.RailSem19(
+    #         'semantic', 'train',
+    #         joint_transform_list=train_joint_transform_list,
+    #         transform=train_input_transform,
+    #         target_transform=target_train_transform,
+    #         dump_images=args.dump_augmentation_images,
+    #         class_uniform_pct=args.class_uniform_pct,
+    #         class_uniform_tile=args.class_uniform_tile,
+    #         test=args.test_mode
+    #     )
+    #     val_set = args.dataset_cls.RailSem19(
+    #         'semantic', 'val',
+    #         joint_transform_list=None,
+    #         transform=val_input_transform,
+    #         target_transform=target_transform,
+    #         test=False)
     elif args.dataset == 'rtisrail22':
         train_set = args.dataset_cls.RTISRail22(
             'semantic', 'train',

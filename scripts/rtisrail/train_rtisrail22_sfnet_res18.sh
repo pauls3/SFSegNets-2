@@ -5,7 +5,7 @@ now=$(date +"%Y%m%d_%H%M%S")
 EXP_DIR=./logs/sfnet_resnet18_rtisrail22_pretrained_rs19_miou-0.753
 mkdir -p ${EXP_DIR}
 # Example on Cityscapes by resnet50-deeplabv3+ as baseline
-python3 -m torch.distributed.launch --nproc_per_node=1 train.py \
+python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --dataset rtisrail22 \
   --cv 0 \
   --arch network.sfnet_resnet.DeepR18_SF_deeply \
@@ -25,9 +25,9 @@ python3 -m torch.distributed.launch --nproc_per_node=1 train.py \
   --color_aug 0.25 \
   --gblur \
   --bblur \
-  --max_epoch 1 \
+  --max_epoch 2000 \
   --wt_bound 1.0 \
-  --bs_mult 1 \
+  --bs_mult 16 \
   --apex \
   --exp rtisrail22_SFnet_res18_lr_0.002 \
   --ckpt ${EXP_DIR}/ \
