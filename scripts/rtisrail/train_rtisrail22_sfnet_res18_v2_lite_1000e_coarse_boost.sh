@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 now=$(date +"%Y%m%d_%H%M%S")
-EXP_DIR=./sfnets/sf_r18_v2_spatial_atten_1000e
+EXP_DIR=./sfnets/sf_r18_v2_rtisrail22
 mkdir -p ${EXP_DIR}
 python -m torch.distributed.launch --nproc_per_node=4 --master_port 29501 train.py \
   --dataset rtisrail22 \

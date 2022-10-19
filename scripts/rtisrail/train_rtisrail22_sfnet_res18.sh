@@ -2,7 +2,7 @@
 
 #!/usr/bin/env bash
 now=$(date +"%Y%m%d_%H%M%S")
-EXP_DIR=./logs/rs19_trainVal_pretrained_cityscapes_3
+EXP_DIR=./logs/sfnet_resnet18_rtisrail22_pretrained_rs19_miou-0.753
 mkdir -p ${EXP_DIR}
 # Example on Cityscapes by resnet50-deeplabv3+ as baseline
 python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
@@ -32,5 +32,5 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --exp rtisrail22_SFnet_res18_lr_0.002 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
-  --snapshot pretrained_models/pretrained_cityscapes_mapillary_rs18_miou-0.799.pth \
+  --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
   2>&1 | tee  ${EXP_DIR}/log_${now}.txt &
