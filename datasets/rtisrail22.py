@@ -9,10 +9,12 @@ import json
 import datasets.uniform as uniform
 from config import cfg
 
-num_classes = 16
+# num_classes = 16
+num_classes = 20
 ignore_label = 255
 root = cfg.DATASET.RTISRAIL22
-config_fn = '/home/stanik/rtis_lab/data/rtis-rail-2022/class_to_id_new.json'
+# config_fn = '/home/stanik/rtis_lab/data/rtis-rail-2022/class_to_id_new.json'
+config_fn = '/home/stanik/rtis_lab/data/rtis-rail-2022/class_to_id_USE_THIS.json' 
 id_to_ignore_or_group = {}
 color_mapping = []
 id_to_trainid = {}
