@@ -39,7 +39,7 @@ def gen_colormap():
         # name = name.replace(' ', '_')
         id2name[i] = name
     color_mapping = colormap
-
+    print("RAILSEM19********************************************************")
     print(color_mapping)
     print(id2name)
     return id2name
