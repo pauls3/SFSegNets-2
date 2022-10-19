@@ -180,7 +180,8 @@ def build_epoch(imgs, centroids, num_classes, class_uniform_pct):
         # string_format = "cls %d len %d"% (class_id, len(centroids[class_id]))
         logging.info(string_format)
     for class_id in range(num_classes):
-        centroid_len = len(centroids[class_id])
+        # centroid_len = len(centroids[class_id])
+        centroid_len = len(centroids.get(class_id, []))
         if centroid_len == 0:
             pass
         else:
