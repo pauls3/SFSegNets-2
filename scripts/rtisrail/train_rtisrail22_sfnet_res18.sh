@@ -25,7 +25,7 @@ python3 -m torch.distributed.launch --nproc_per_node=2 train.py \
   --color_aug 0.25 \
   --gblur \
   --bblur \
-  --max_epoch 2000 \
+  --max_epoch 1 \
   --wt_bound 1.0 \
   --bs_mult 4 \
   --apex \
