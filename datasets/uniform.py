@@ -34,7 +34,7 @@ def calc_tile_locations(tile_size, image_size):
     image_size: original image size
     return: locations of the tiles
     """
-    image_size_y, image_size_x, image_size_z = image_size
+    image_size_y, image_size_x = image_size
     locations = []
     for y in range(image_size_y // tile_size):
         for x in range(image_size_x // tile_size):
