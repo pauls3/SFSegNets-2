@@ -27,7 +27,7 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --bblur \
   --max_epoch 2000 \
   --wt_bound 1.0 \
-  --bs_mult 16 \
+  --bs_mult 8 \
   --apex \
   --exp rtisrail22_SFnet_res18_lr_0.002 \
   --ckpt ${EXP_DIR}/ \
