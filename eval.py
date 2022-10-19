@@ -26,7 +26,7 @@ import numpy as np
 import transforms.transforms as extended_transforms
 
 from config import assert_and_infer_cfg
-from datasets import cityscapes, kitti
+from datasets import cityscapes, rtisrail22
 from optimizer import restore_snapshot
 
 from utils.my_data_parallel import MyDataParallel
@@ -389,9 +389,15 @@ def setup_loader():
                                                eval_scales=eval_scales,
                                                eval_flip=not args.no_flip,
                                                  )
-    elif args.dataset == 'kitti':
-        args.dataset_cls = kitti
-        test_set = args.dataset_cls.KITTI(args.mode, args.split,
+    # elif args.dataset == 'kitti':
+    #     args.dataset_cls = kitti
+    #     test_set = args.dataset_cls.KITTI(args.mode, args.split,
+    #                                      transform=val_input_transform,
+    #                                      target_transform=target_transform,
+    #                                      cv_split=args.cv_split)
+    elif args.dataset == 'rtisrail22':
+        args.dataset_cls = rtisrail22
+        test_set = args.dataset_cls.RTISRail22(args.mode, args.split,
                                          transform=val_input_transform,
                                          target_transform=target_transform,
                                          cv_split=args.cv_split)
