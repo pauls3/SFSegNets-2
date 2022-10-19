@@ -400,7 +400,7 @@ def setup_loader():
         test_set = args.dataset_cls.RTISRail22(args.mode, args.split,
                                          transform=val_input_transform,
                                          target_transform=target_transform,
-                                         cv_split=args.cv_split)
+                                         test=True)
     else:
         raise NameError('-------------Not Supported Currently-------------')
 
