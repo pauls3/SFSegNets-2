@@ -10,7 +10,7 @@ import datasets.uniform as uniform
 from config import cfg
 
 # num_classes = 16
-num_classes = 20
+num_classes = 13
 ignore_label = 255
 root = cfg.DATASET.RTISRAIL22
 # config_fn = '/home/stanik/rtis_lab/data/rtis-rail-2022/class_to_id_new.json'
