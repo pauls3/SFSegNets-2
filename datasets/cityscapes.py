@@ -16,6 +16,8 @@ import datasets.edge_utils as edge_utils
 
 from config import cfg
 
+print("CITYSCAPES *************************************************************************")
+
 trainid_to_name = cityscapes_labels.trainId2name
 id_to_trainid = cityscapes_labels.label2trainid
 num_classes = 19

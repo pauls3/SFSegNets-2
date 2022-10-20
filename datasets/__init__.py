@@ -73,6 +73,7 @@ def setup_loaders(args):
         else:
             args.val_batch_size = args.bs_mult * args.ngpu
     elif args.dataset == 'railsem19':
+        print("init railsem19 76 *****************************************************************************")
         args.dataset_cls = railsem19
         args.train_batch_size = args.bs_mult * args.ngpu
         if args.bs_mult_val > 0:
@@ -324,6 +325,7 @@ def setup_loaders(args):
     #         scf=None)
 
     elif args.dataset == 'railsem19':
+        print("init railsem19 328 *****************************************************************************")
         train_set = args.dataset_cls.RailSem19(
             'semantic', 'train',
             joint_transform_list=train_joint_transform_list,
