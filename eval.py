@@ -584,7 +584,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     save_log('eval', output_dir, date_str)
     logging.info("Network Arch: %s", args.arch)
-    logging.info("CV split: %d", args.cv_split)
+    # logging.info("CV split: %d", args.cv_split)
     logging.info("Exp_name: %s", args.exp_name)
     logging.info("Ckpt path: %s", args.ckpt_path)
     logging.info("Scales : %s", ' '.join(str(e) for e in scales))
