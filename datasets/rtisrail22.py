@@ -26,7 +26,7 @@ def gen_colormap():
     """
     global color_mapping
 
-    # load railsem19 config
+    # load config
     with open(config_fn) as config_file:
         config = json.load(config_file)
     config_labels = config['labels']
@@ -52,7 +52,7 @@ zero_pad = 256 * 3 - len(color_mapping)
 for i in range(zero_pad):
     color_mapping.append(0)
 
-print(color_mapping)
+
 
 def colorize_mask(image_array):
     """
