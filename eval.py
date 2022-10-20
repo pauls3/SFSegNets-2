@@ -440,6 +440,7 @@ class RunEval():
         self.pred_path = os.path.join(output_dir, 'pred')
         self.diff_path = os.path.join(output_dir, 'diff')
         self.compose_path = os.path.join(output_dir, 'compose')
+        self.gt_path = os.path.join(output_dir, 'gt')
         self.metrics = metrics
 
         self.write_image = write_image
@@ -450,6 +451,7 @@ class RunEval():
         os.makedirs(self.pred_path, exist_ok=True)
         os.makedirs(self.diff_path, exist_ok=True)
         os.makedirs(self.compose_path, exist_ok=True)
+        os.makedirs(self.gt_path, exist_ok=True)
 
         if self.metrics:
             self.hist = np.zeros((self.dataset_cls.num_classes,
@@ -473,6 +475,7 @@ class RunEval():
         pred_img_name = '{}/{}.png'.format(self.pred_path, self.img_name)
         diff_img_name = '{}/{}_diff.png'.format(self.diff_path, self.img_name)
         compose_img_name = '{}/{}_compose.png'.format(self.compose_path, self.img_name)
+        # gt_img_name = '{}/{}_compose.png'.format(self.gt_path, self.img_name)
         to_pil = transforms.ToPILImage()
         if self.inference_mode == 'pooling':
             img = imgs
@@ -518,7 +521,8 @@ class RunEval():
                 blend = Image.blend(img.convert("RGBA"), colorized.convert("RGBA"), 0.5)
             blend.save(compose_img_name)
 
-            if gt is not None and args.split != 'test':
+
+            if gt is not None: #and args.split != 'test':
                 gt = gt[0].cpu().numpy()
                 # only write diff image if gt is valid
                 diff = (prediction != gt)
@@ -533,6 +537,7 @@ class RunEval():
             for label_id, train_id in self.dataset_cls.id_to_trainid.items():
                 label_out[np.where(prediction == train_id)] = label_id
             cv2.imwrite(pred_img_name, label_out)
+            # cv2.imwrite(pred_img_name, gt)
 
     def final_dump(self):
         """
