@@ -29,7 +29,7 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --wt_bound 1.0 \
   --bs_mult 8 \
   --apex \
-  --exp rtisrail22_SFnet_res18_0 \
+  --exp rtisrail22_SFnet_res18_train_0 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
   2>&1 | tee  ${EXP_DIR}/log_${now}.txt &
