@@ -44,6 +44,7 @@ def gen_colormap():
 
     print(color_mapping)
     print(id2name)
+    print(colormap)
     return id2name
 
 gen_colormap()

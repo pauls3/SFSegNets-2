@@ -29,8 +29,8 @@ python3 -m torch.distributed.launch --nproc_per_node=2 train.py \
   --wt_bound 1.0 \
   --bs_mult 4 \
   --apex \
-  --exp rtisrail22_SFnet_res18_test \
+  --exp rtisrail22_SFnet_res18_test0 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
-  --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
+  # --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
   2>&1 | tee  ${EXP_DIR}/log_${now}.txt &
