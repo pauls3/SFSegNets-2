@@ -2,7 +2,7 @@
 #   --class_uniform_pct 0.5 \
 EXP_DIR=./sfnets/stdc2_SFV2_spatial_atten_rtisrail22
 mkdir -p ${EXP_DIR}
-python3 -m torch.distributed.launch --nproc_per_node=2 --master_port 29501  train.py \
+python3 -m torch.distributed.launch --nproc_per_node=4 --master_port 29501  train.py \
   --dataset rtisrail22 \
   --cv 0 \
   --arch network.sfnet_stdcnet.AlignedSTDC2_SFV2_spatial_atten \
