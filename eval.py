@@ -475,7 +475,7 @@ class RunEval():
         pred_img_name = '{}/{}.png'.format(self.pred_path, self.img_name)
         diff_img_name = '{}/{}_diff.png'.format(self.diff_path, self.img_name)
         compose_img_name = '{}/{}_compose.png'.format(self.compose_path, self.img_name)
-        # gt_img_name = '{}/{}_compose.png'.format(self.gt_path, self.img_name)
+        gt_img_name = '{}/{}_compose.png'.format(self.gt_path, self.img_name)
         to_pil = transforms.ToPILImage()
         if self.inference_mode == 'pooling':
             img = imgs
@@ -522,7 +522,7 @@ class RunEval():
             blend.save(compose_img_name)
 
 
-            if gt is not None: #and args.split != 'test':
+            if gt is not None and args.split != 'test':
                 gt = gt[0].cpu().numpy()
                 # only write diff image if gt is valid
                 diff = (prediction != gt)
@@ -537,7 +537,7 @@ class RunEval():
             for label_id, train_id in self.dataset_cls.id_to_trainid.items():
                 label_out[np.where(prediction == train_id)] = label_id
             cv2.imwrite(pred_img_name, label_out)
-            # cv2.imwrite(pred_img_name, gt)
+            cv2.imwrite(gt_img_name, gt)
 
     def final_dump(self):
         """
