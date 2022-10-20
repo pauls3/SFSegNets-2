@@ -1,5 +1,5 @@
 # CUDA_VISIBLE_DEVICES="4,5,6,7" sh ./scripts/train_railsem19_sfnet_res18.sh
-
+  # --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
 #!/usr/bin/env bash
 now=$(date +"%Y%m%d_%H%M%S")
 EXP_DIR=./logs/sfnet_resnet18_rtisrail22_pretrained_rs19_miou-0.753
@@ -32,5 +32,4 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --exp rtisrail22_SFnet_res18_0 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
-  --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
   2>&1 | tee  ${EXP_DIR}/log_${now}.txt &
