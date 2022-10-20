@@ -2,14 +2,14 @@
 Dataset setup and loaders
 This file including the different datasets processing pipelines
 """
-from datasets import cityscapes
+# from datasets import cityscapes
 # from datasets import mapillary
 # from datasets import kitti
 # from datasets import camvid
 # from datasets import bdd
 # from datasets import idd
 # from datasets import merged_auto_dataset
-from datasets import railsem19
+# from datasets import railsem19
 from datasets import rtisrail22
 import torchvision.transforms as standard_transforms
 
@@ -25,62 +25,62 @@ def setup_loaders(args):
     return:  training data loader, validation data loader loader,  train_set
     """
 
-    if args.dataset == 'cityscapes':
-        args.dataset_cls = cityscapes
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-            # args.val_batch_size = 10
-    elif args.dataset == 'mapillary':
-        args.dataset_cls = mapillary
-        args.train_batch_size = args.bs_mult * args.ngpu
-        args.val_batch_size = 4
-    elif args.dataset == 'kitti':
-        args.dataset_cls = kitti
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'merged_dataset':
-        args.dataset_cls = merged_auto_dataset
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'camvid':
-        args.dataset_cls = camvid
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'bdd':
-        args.dataset_cls = bdd
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'idd':
-        args.dataset_cls = idd
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'railsem19':
-        print("init railsem19 76 *****************************************************************************")
-        args.dataset_cls = railsem19
-        args.train_batch_size = args.bs_mult * args.ngpu
-        if args.bs_mult_val > 0:
-            args.val_batch_size = args.bs_mult_val * args.ngpu
-        else:
-            args.val_batch_size = args.bs_mult * args.ngpu
-    elif args.dataset == 'rtisrail22':
+    # if args.dataset == 'cityscapes':
+    #     args.dataset_cls = cityscapes
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    #         # args.val_batch_size = 10
+    # elif args.dataset == 'mapillary':
+    #     args.dataset_cls = mapillary
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     args.val_batch_size = 4
+    # elif args.dataset == 'kitti':
+    #     args.dataset_cls = kitti
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    # elif args.dataset == 'merged_dataset':
+    #     args.dataset_cls = merged_auto_dataset
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    # elif args.dataset == 'camvid':
+    #     args.dataset_cls = camvid
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    # elif args.dataset == 'bdd':
+    #     args.dataset_cls = bdd
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    # elif args.dataset == 'idd':
+    #     args.dataset_cls = idd
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    # elif args.dataset == 'railsem19':
+    #     print("init railsem19 76 *****************************************************************************")
+    #     args.dataset_cls = railsem19
+    #     args.train_batch_size = args.bs_mult * args.ngpu
+    #     if args.bs_mult_val > 0:
+    #         args.val_batch_size = args.bs_mult_val * args.ngpu
+    #     else:
+    #         args.val_batch_size = args.bs_mult * args.ngpu
+    if args.dataset == 'rtisrail22':
         args.dataset_cls = rtisrail22
         args.train_batch_size = args.bs_mult * args.ngpu
         if args.bs_mult_val > 0:
@@ -149,46 +149,46 @@ def setup_loaders(args):
         target_train_transform = extended_transforms.MaskToTensor()
 
     edge_map = args.joint_edgeseg_loss
-    if args.dataset == 'cityscapes':
-        if args.mode == "trainval":
-            city_mode = 'trainval'  ## Can be trainval, hard code
-        else:
-            city_mode = 'train'
-        city_quality = 'fine'
+    # if args.dataset == 'cityscapes':
+    #     if args.mode == "trainval":
+    #         city_mode = 'trainval'  ## Can be trainval, hard code
+    #     else:
+    #         city_mode = 'train'
+    #     city_quality = 'fine'
 
-        if args.class_uniform_pct:
-            if args.coarse_boost_classes:
-                coarse_boost_classes = \
-                    [int(c) for c in args.coarse_boost_classes.split(',')]
-            else:
-                coarse_boost_classes = None
-            train_set = args.dataset_cls.CityScapesUniform(
-                city_quality, city_mode, args.maxSkip,
-                joint_transform_list=train_joint_transform_list,
-                transform=train_input_transform,
-                target_transform=target_train_transform,
-                dump_images=args.dump_augmentation_images,
-                cv_split=args.cv,
-                class_uniform_pct=args.class_uniform_pct,
-                class_uniform_tile=args.class_uniform_tile,
-                test=args.test_mode,
-                coarse_boost_classes=coarse_boost_classes,
-                edge_map=edge_map
-            )
+    #     if args.class_uniform_pct:
+    #         if args.coarse_boost_classes:
+    #             coarse_boost_classes = \
+    #                 [int(c) for c in args.coarse_boost_classes.split(',')]
+    #         else:
+    #             coarse_boost_classes = None
+    #         train_set = args.dataset_cls.CityScapesUniform(
+    #             city_quality, city_mode, args.maxSkip,
+    #             joint_transform_list=train_joint_transform_list,
+    #             transform=train_input_transform,
+    #             target_transform=target_train_transform,
+    #             dump_images=args.dump_augmentation_images,
+    #             cv_split=args.cv,
+    #             class_uniform_pct=args.class_uniform_pct,
+    #             class_uniform_tile=args.class_uniform_tile,
+    #             test=args.test_mode,
+    #             coarse_boost_classes=coarse_boost_classes,
+    #             edge_map=edge_map
+    #         )
 
-        else:
-            train_set = args.dataset_cls.CityScapes(
-                city_quality, city_mode, 0, 
-                joint_transform=train_joint_transform,
-                transform=train_input_transform,
-                target_transform=target_train_transform,
-                dump_images=args.dump_augmentation_images,
-                cv_split=args.cv)
+    #     else:
+    #         train_set = args.dataset_cls.CityScapes(
+    #             city_quality, city_mode, 0, 
+    #             joint_transform=train_joint_transform,
+    #             transform=train_input_transform,
+    #             target_transform=target_train_transform,
+    #             dump_images=args.dump_augmentation_images,
+    #             cv_split=args.cv)
 
-        val_set = args.dataset_cls.CityScapes('fine', 'val', 0, 
-                                              transform=val_input_transform,
-                                              target_transform=target_transform,
-                                              cv_split=args.cv)
+    #     val_set = args.dataset_cls.CityScapes('fine', 'val', 0, 
+    #                                           transform=val_input_transform,
+    #                                           target_transform=target_transform,
+    #                                           cv_split=args.cv)
     # elif args.dataset == 'mapillary':
     #     # eval_size = 1536
     #     eval_size = 1536
@@ -324,25 +324,25 @@ def setup_loaders(args):
     #         cv_split=args.cv,
     #         scf=None)
 
-    elif args.dataset == 'railsem19':
-        print("init railsem19 328 *****************************************************************************")
-        train_set = args.dataset_cls.RailSem19(
-            'semantic', 'train',
-            joint_transform_list=train_joint_transform_list,
-            transform=train_input_transform,
-            target_transform=target_train_transform,
-            dump_images=args.dump_augmentation_images,
-            class_uniform_pct=args.class_uniform_pct,
-            class_uniform_tile=args.class_uniform_tile,
-            test=args.test_mode
-        )
-        val_set = args.dataset_cls.RailSem19(
-            'semantic', 'val',
-            joint_transform_list=None,
-            transform=val_input_transform,
-            target_transform=target_transform,
-            test=False)
-    elif args.dataset == 'rtisrail22':
+    # elif args.dataset == 'railsem19':
+    #     print("init railsem19 328 *****************************************************************************")
+    #     train_set = args.dataset_cls.RailSem19(
+    #         'semantic', 'train',
+    #         joint_transform_list=train_joint_transform_list,
+    #         transform=train_input_transform,
+    #         target_transform=target_train_transform,
+    #         dump_images=args.dump_augmentation_images,
+    #         class_uniform_pct=args.class_uniform_pct,
+    #         class_uniform_tile=args.class_uniform_tile,
+    #         test=args.test_mode
+    #     )
+    #     val_set = args.dataset_cls.RailSem19(
+    #         'semantic', 'val',
+    #         joint_transform_list=None,
+    #         transform=val_input_transform,
+    #         target_transform=target_transform,
+    #         test=False)
+    if args.dataset == 'rtisrail22':
         train_set = args.dataset_cls.RTISRail22(
             'semantic', 'train',
             joint_transform_list=train_joint_transform_list,
