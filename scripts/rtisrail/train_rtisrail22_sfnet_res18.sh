@@ -32,5 +32,5 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --exp rtisrail22_SFnet_res18_train_2 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
-  --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
+  --snapshot pretrained_models/railsem19_sfnet_resnet18_mean-iu_0.75268.pth \
   2>&1 | tee  ${EXP_DIR}/log_${now}.txt &
