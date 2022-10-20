@@ -25,11 +25,11 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --color_aug 0.25 \
   --gblur \
   --bblur \
-  --max_epoch 2500 \
+  --max_epoch 700 \
   --wt_bound 1.0 \
   --bs_mult 8 \
   --apex \
-  --exp rtisrail22_SFnet_res18_train_1 \
+  --exp rtisrail22_SFnet_res18_train_2 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
   --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
