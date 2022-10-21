@@ -11,6 +11,7 @@ This file including the different datasets processing pipelines
 # from datasets import merged_auto_dataset
 # from datasets import railsem19
 from datasets import rtisrail22
+from datasets.railsem19 import RailSem19
 import torchvision.transforms as standard_transforms
 
 import transforms.joint_transforms as joint_transforms
@@ -73,7 +74,7 @@ def setup_loaders(args):
     #     else:
     #         args.val_batch_size = args.bs_mult * args.ngpu
     if args.dataset == 'railsem19':
-        args.dataset_cls = railsem19
+        args.dataset_cls = RailSem19
         args.train_batch_size = args.bs_mult * args.ngpu
         if args.bs_mult_val > 0:
             args.val_batch_size = args.bs_mult_val * args.ngpu
