@@ -75,8 +75,12 @@ for img_id, img_name in enumerate(images):
     pred = np.argmax(pred, axis=0)
 
     # final mask
-    color_name = 'color_mask_' + img_name
-    overlap_name = 'overlap_' + img_name
+    # color_name = 'color_mask_' + img_name
+    # overlap_name = 'overlap_' + img_name
+    color_name = 'color_mask_' + os.path.splitext(img_name)[0] + '.png'
+    overlap_name = 'overlap_' + os.path.splitext(img_name)[0] + '.png'
+
+
 
     # save colorized predictions
     colorized = args.dataset_cls.colorize_mask(pred)
