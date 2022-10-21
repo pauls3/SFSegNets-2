@@ -403,7 +403,7 @@ def setup_loader():
                                          test=True)
     elif args.dataset == 'railsem19':
         args.dataset_cls = railsem19
-        test_set = args.dataset_cls.RAILSEM19(args.mode, args.split,
+        test_set = args.dataset_cls.RailSem19(args.mode, args.split,
                                          transform=val_input_transform,
                                          target_transform=target_transform,
                                          test=True)
