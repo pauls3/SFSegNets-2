@@ -88,6 +88,8 @@ for img_id, img_name in enumerate(images):
 
 
 end_time = time.time()
+print("******************")
+print(end_time - start_time)
 
 logging.info('Results saved.')
 logging.info('Inference takes %4.2f seconds, which is %4.2f seconds per image, including saving results.' % (end_time - start_time, (end_time - start_time)/len(images)))
