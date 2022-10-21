@@ -34,6 +34,8 @@ from utils.misc import fast_hist, save_log, per_class_iu, evaluate_eval_for_infe
 
 import network
 
+from timeit import default_timer as timer
+
 sys.path.append(os.path.join(os.getcwd()))
 sys.path.append(os.path.join(os.getcwd(), '../'))
 
@@ -627,7 +629,8 @@ def main():
         inference = inference_whole
     else:
         raise 'Not a valid inference mode: {}'.format(args.inference_mode)
-
+    
+    start = timer()
     # Run Inference!
     pbar = tqdm(test_loader, desc='eval {}'.format(args.split), smoothing=1.0)
     for iteration, data in enumerate(pbar):
@@ -649,6 +652,8 @@ def main():
         if iteration > 5 and args.test_mode:
             break
 
+    end = timer()
+    print(end - start) # time in seconds
     # Calculate final overall statistics
     runner.final_dump()
 
