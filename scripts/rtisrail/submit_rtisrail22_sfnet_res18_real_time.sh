@@ -9,5 +9,6 @@ python3 eval.py \
     --inference_mode whole \
     --scales 1 \
     --split test \
+     --dump_images \
     --ckpt_path logs/pretrained_railsem19_test_3 \
     --snapshot pretrained_models/rtisrail22_sfnet_resnet18_mean-iu_0.88745.pth
