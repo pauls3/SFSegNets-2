@@ -7,7 +7,7 @@
 import torch.nn as nn
 
 from network.stdcnet import STDCNet813, STDCNet1446
-from network.sfnet_resnet import UperNetAlignHead, UperNetAlignHeadAddition, UperNetAlignHeadV2, UperNetHead
+from network.sfnet_resnet import UperNetAlignHead, UperNetAlignHeadV2, UperNetHead
 from network.nn.mynn import Norm2d, Upsample
 
 
@@ -28,9 +28,9 @@ class AlignNetSTDCnet(nn.Module):
         if head_type == "v2":
             self.head = UperNetAlignHeadV2(1024, num_class=num_classes, norm_layer=Norm2d, fa_type=fa_type,
                                 fpn_inplanes=[64, 512], fpn_dim=128, fpn_dsn=fpn_dsn, global_context=global_context)
-        elif head_type == "v2_add":
-            self.head = UperNetAlignHeadAddition(1024, num_class=num_classes, norm_layer=Norm2d, fa_type=fa_type,
-                                fpn_inplanes=[64, 512], fpn_dim=128, fpn_dsn=fpn_dsn, global_context=global_context)
+        # elif head_type == "v2_add":
+        #     self.head = UperNetAlignHeadAddition(1024, num_class=num_classes, norm_layer=Norm2d, fa_type=fa_type,
+                                # fpn_inplanes=[64, 512], fpn_dim=128, fpn_dsn=fpn_dsn, global_context=global_context)
         else:
             self.head = UperNetAlignHead(inplane=1024, num_class=num_classes, norm_layer=Norm2d,
                                 fpn_inplanes=[64, 256, 512, 1024], fpn_dim=64, conv3x3_type=flow_conv_type,
