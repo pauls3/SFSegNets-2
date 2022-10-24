@@ -6,5 +6,5 @@
 python3 demo_floder.py \
     --arch network.sfnet_resnet.DeepR18_SF_deeply \
     --save_dir logs/rr22_dump_rs19_test/no_eval_test_0 \
-    --snapshot pretrained_models/pretrained_models/rtisrail22_sfnet_resnet18_mean-iu_0.88745.pth \
+    --snapshot pretrained_models/rtisrail22_sfnet_resnet18_mean-iu_0.88745.pth \
     --demo_folder /shared/rtis_lab/data/RailSem19/custom_split/test_images/
