@@ -1,4 +1,4 @@
-# CUDA_VISIBLE_DEVICES="4,5,6,7" sh ./scripts/train_rs19_rtisrail22_sfnet_res18.sh
+# CUDA_VISIBLE_DEVICES="4,5,6,7" sh ./scripts/rtisrail/train_rs19_rtisrail22_sfnet_res18.sh
   # --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
 #!/usr/bin/env bash
 now=$(date +"%Y%m%d_%H%M%S")
