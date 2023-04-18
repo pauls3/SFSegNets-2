@@ -191,8 +191,11 @@ class RTISRail22(data.Dataset):
             mask_copy[mask == k] = v
         mask = Image.fromarray(mask_copy.astype(np.uint8))
 
-        print(img_path)
-        print(mask_path)
+
+        if img.shape[0] != mask.shape[0] or img.shape[1] != mask.shape[1]:
+            print(img_path)
+            print(mask_path)
+
 
         # Image Transformations
         if self.joint_transform_list is not None:
