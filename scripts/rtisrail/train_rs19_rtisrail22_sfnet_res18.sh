@@ -29,7 +29,7 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --wt_bound 1.0 \
   --bs_mult 8 \
   --apex \
-  --exp rs19_rtisrail22_SFnet_res18_train_0 \
+  --exp rs19_rtisrail22_SFnet_res18_trainVal_0 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
   --snapshot pretrained_models/pretrained_cityscapes_mapillary_rs18_miou-0.799.pth \
