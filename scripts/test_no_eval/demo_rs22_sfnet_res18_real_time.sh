@@ -15,5 +15,5 @@
 python3 demo_floder.py \
     --arch network.sfnet_resnet.DeepR18_SF_deeply \
     --save_dir logs/rr22_rs19_trainVal_test-no-eval_vid-0-mud-1 \
-    --snapshot pretrained_models/rs19_rtisrail22_trainVal_mean-iu_0.69496.pthh \
+    --snapshot pretrained_models/rs19_rtisrail22_trainVal_mean-iu_0.69496.pth \
     --demo_folder /home/stanik/rtis_lab/data/RailSem19/custom_split/vid_0_mud_1/
