@@ -10,5 +10,5 @@ python3 eval.py \
     --scales 1 \
     --split test \
     --dump_images \
-    --ckpt_path logs/rr22_pretrained_railsem19_test_0 \
+    --ckpt_path logs/rr22_pre-rs19_test_0 \
     --snapshot pretrained_models/rtisrail22_sfnet_resnet18_mean-iu_0.88745.pth
