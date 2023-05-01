@@ -10,5 +10,5 @@ python3 eval.py \
     --scales 1 \
     --split test \
     --dump_images \
-    --ckpt_path logs/rr22_rs19_trainVal_test_1 \
+    --ckpt_path logs/rr22_rs19_trainVal_test_2 \
     --snapshot pretrained_models/rs19_rtisrail22_trainVal_mean-iu_0.69496.pth
