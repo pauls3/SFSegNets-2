@@ -14,6 +14,6 @@
 
 python3 demo_floder.py \
     --arch network.sfnet_resnet.DeepR18_SF_deeply \
-    --save_dir logs/rr22_trainVal_pre-rs19_test-no-eval_vid_3_veg_people\
+    --save_dir logs/rr22_trainVal_pre-rs19_test-no-eval_vid_3_good_tunnel\
     --snapshot pretrained_models/rtisrail22_sfnet_resnet18_mean-iu_0.88745.pth \
-    --demo_folder /home/stanik/repos/SFSegNets-3/SFSegNets-2/test_data/vid_3_veg_people/
+    --demo_folder /home/stanik/repos/SFSegNets-3/SFSegNets-2/test_data/vid_3_good_tunnel/
