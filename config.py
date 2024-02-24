@@ -55,6 +55,7 @@ __C.DATASET.KITTI_AUG_DIR = ''
 # __C.DATASET.IDD_DIR = './data/IDD'
 __C.DATASET.RAILSEM19 = '/home/stanik/rtis_lab/data/RailSem19/custom_split'
 __C.DATASET.RTISRAIL22 = '/home/stanik/rtis_lab/data/rtis-rail-2022v8/custom_split'
+__C.DATASET.FLAME = '/home/stanik/rtis_lab/data/FLAME/custom_split'
 
 #Number of splits to support
 __C.DATASET.CV_SPLITS = 3
