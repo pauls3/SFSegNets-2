@@ -10,5 +10,5 @@ python3 eval.py \
     --scales 1 \
     --split test \
     --dump_images \
-    --ckpt_path logs/sfnet_resnet18_flame_test \
-    --snapshot pretrained_models/best_epoch_180_mean-iu_0.90822.pth
+    --ckpt_path logs/sfnet_resnet18_flame_test_1 \
+    --snapshot pretrained_models/flame/best_epoch_467_mean-iu_0.91286.pth
