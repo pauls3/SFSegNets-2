@@ -26,7 +26,7 @@ import numpy as np
 import transforms.transforms as extended_transforms
 
 from config import assert_and_infer_cfg
-from datasets import cityscapes, rtisrail22, railsem19
+from datasets import cityscapes, rtisrail22, railsem19, flame
 from optimizer import restore_snapshot
 
 from utils.my_data_parallel import MyDataParallel
@@ -406,6 +406,12 @@ def setup_loader():
     elif args.dataset == 'railsem19':
         args.dataset_cls = railsem19
         test_set = args.dataset_cls.RailSem19(args.mode, args.split,
+                                         transform=val_input_transform,
+                                         target_transform=target_transform,
+                                         test=True)
+    elif args.dataset == 'flame':
+        args.dataset_cls = flame
+        test_set = args.dataset_cls.Flame(args.mode, args.split,
                                          transform=val_input_transform,
                                          target_transform=target_transform,
                                          test=True)
