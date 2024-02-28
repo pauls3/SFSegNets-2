@@ -489,7 +489,7 @@ class RunEval():
         pred_img_name = '{}/{}.png'.format(self.pred_path, self.img_name)
         diff_img_name = '{}/{}_diff.png'.format(self.diff_path, self.img_name)
         compose_img_name = '{}/{}_compose.png'.format(self.compose_path, self.img_name)
-        gt_img_name = '{}/{}_compose.png'.format(self.gt_path, self.img_name)
+        gt_img_name = '{}/{}_gt.png'.format(self.gt_path, self.img_name)
         to_pil = transforms.ToPILImage()
         if self.inference_mode == 'pooling':
             img = imgs
