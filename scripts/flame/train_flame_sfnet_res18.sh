@@ -1,8 +1,8 @@
-# CUDA_VISIBLE_DEVICES="4,5,6,7" sh ./scripts/rtisrail/train_rs19_rtisrail22_sfnet_res18.sh
-  # --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \
+# CUDA_VISIBLE_DEVICES="4,5,6,7" sh ./scripts/flame/train_flame_sfnet_res18.sh
+  # --snapshot pretrained_models/best_epoch_391_mean-iu_0.75268.pth \rs19_rtisrail22
 #!/usr/bin/env bash
 now=$(date +"%Y%m%d_%H%M%S")
-EXP_DIR=./logs/sfnet_resnet18_rtisrail22_pretrained_rs19_miou-0.753
+EXP_DIR=./logs/sfnet_resnet18_flame
 mkdir -p ${EXP_DIR}
 # Example on Cityscapes by resnet50-deeplabv3+ as baseline
 python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
@@ -11,7 +11,7 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --arch network.sfnet_resnet.DeepR18_SF_deeply \
   --class_uniform_pct 0.5 \
   --class_uniform_tile 1080 \
-  --lr 0.0025 \
+  --lr 0.003 \
   --lr_schedule poly \
   --poly_exp 1.0 \
   --repoly 1.5  \
@@ -25,7 +25,7 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --color_aug 0.25 \
   --gblur \
   --bblur \
-  --max_epoch 500 \
+  --max_epoch 200 \
   --wt_bound 1.0 \
   --bs_mult 8 \
   --apex \
