@@ -550,9 +550,13 @@ class RunEval():
             label_out = np.zeros_like(prediction)
             for label_id, train_id in self.dataset_cls.id_to_trainid.items():
                 label_out[np.where(prediction == train_id)] = label_id
-            cv2.imwrite(pred_img_name, label_out)
+            colorized_label = self.dataset_cls.colorize_mask(label_out)
+            colorized_label.save(pred_img_name)
+            # cv2.imwrite(pred_img_name, label_out)
             gt = gt[0].cpu().numpy()
-            cv2.imwrite(gt_img_name, gt)
+            colorized_gt = self.dataset_cls.colorize_mask(gt)
+            colorized_gt.save(gt_img_name)
+            # cv2.imwrite(gt_img_name, gt)
 
     def final_dump(self):
         """
