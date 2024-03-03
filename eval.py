@@ -640,9 +640,10 @@ def main():
     else:
         raise 'Not a valid inference mode: {}'.format(args.inference_mode)
     
-    start = timer()
     # Run Inference!
     pbar = tqdm(test_loader, desc='eval {}'.format(args.split), smoothing=1.0)
+    # start = timer()
+    total_time = 0.
     for iteration, data in enumerate(pbar):
 
         if args.dataset == 'video_folder':
@@ -658,12 +659,15 @@ def main():
                 base_img = None
                 imgs, gt, img_names = data
 
+        start = timer()
         runner.inf(imgs, img_names, gt, inference, net, scales, pbar, base_img)
+        end = timer()
+        total_time = end - start
         if iteration > 5 and args.test_mode:
             break
 
-    end = timer()
-    print(end - start) # time in seconds
+    # end = timer()
+    print(total_time) # time in seconds
     # Calculate final overall statistics
     runner.final_dump()
 
