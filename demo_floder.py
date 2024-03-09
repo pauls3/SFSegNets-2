@@ -80,10 +80,10 @@ for img_id, img_name in enumerate(images):
     # color_name = 'color_mask_' + img_name
     # overlap_name = 'overlap_' + img_name
     temp_name = os.path.splitext(img_name)[0]
-    if len(temp_name) == 2:
-        temp_name = '0' + temp_name
-    elif len(temp_name) == 1:
-        temp_name = '00' + temp_name
+    # if len(temp_name) == 2:
+    #     temp_name = '0' + temp_name
+    # elif len(temp_name) == 1:
+    #     temp_name = '00' + temp_name
     color_name = 'color_mask_' + temp_name + '.png'
     overlap_name = 'overlap_' + temp_name + '.png'
 
