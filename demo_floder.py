@@ -15,7 +15,7 @@ import torchvision.transforms as transforms
 from network import get_net
 from optimizer import restore_snapshot
 # from datasets import cityscapes
-# from datasets import rtisrail22
+from datasets import rtisrail22
 from datasets import flame
 from config import assert_and_infer_cfg
 from utils.misc import save_log
@@ -38,8 +38,8 @@ save_log('log', log_dir, date_str, rank=0)
 
 # get net
 # args.dataset_cls = cityscapes
-# args.dataset_cls = rtisrail22
-args.dataset_cls = flame
+args.dataset_cls = rtisrail22
+# args.dataset_cls = flame
 net = get_net(args, criterion=None)
 net = torch.nn.DataParallel(net).cuda()
 logging.info('Net built.')
