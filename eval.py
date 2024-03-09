@@ -662,7 +662,7 @@ def main():
         start = timer()
         runner.inf(imgs, img_names, gt, inference, net, scales, pbar, base_img)
         end = timer()
-        total_time = end - start
+        total_time += end - start
         if iteration > 5 and args.test_mode:
             break
 
