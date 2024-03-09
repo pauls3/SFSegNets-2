@@ -8,7 +8,7 @@ mkdir -p ${EXP_DIR}
 python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --dataset flame \
   --cv 0 \
-  --arch network.sfnet_resnet.DeepR18_SF_deeply \
+  --arch network.sfnet_resnet.DeepR18_SFV2_deeply_dsn_FA_Atten \
   --class_uniform_pct 0.5 \
   --class_uniform_tile 1080 \
   --lr 0.0021 \
@@ -29,7 +29,7 @@ python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --wt_bound 1.0 \
   --bs_mult 8 \
   --apex \
-  --exp flame_SFnet_res18_train_1 \
+  --exp flame_SFnet_res18_trainVal_1 \
   --ckpt ${EXP_DIR}/ \
   --tb_path ${EXP_DIR}/ \
   --snapshot pretrained_models/pretrained_cityscapes_mapillary_rs18_miou-0.799.pth \
