@@ -8,7 +8,7 @@ mkdir -p ${EXP_DIR}
 python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
   --dataset flame \
   --cv 0 \
-  --arch network.sfnet_resnet.DeepR18_SFV2_deeply_dsn_FA_Atten \
+  --arch network.sfnet_resnet.DeepR18_SF_deeply \
   --class_uniform_pct 0.5 \
   --class_uniform_tile 1080 \
   --lr 0.0021 \
