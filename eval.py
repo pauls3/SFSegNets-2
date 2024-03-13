@@ -532,7 +532,7 @@ class RunEval():
             if args.dataset == 'kitti' and args.split == 'test':
                 blend = Image.blend(small_img.convert("RGBA"), colorized.convert("RGBA"), 0.5)
             else:
-                blend = Image.blend(img.convert("RGBA"), colorized.convert("RGBA"), 0.5)
+                blend = Image.blend(img.convert("RGBA"), colorized.convert("RGBA"), 0.4)
             blend.save(compose_img_name)
 
 
