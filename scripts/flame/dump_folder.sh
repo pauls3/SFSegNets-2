@@ -1,3 +1,5 @@
+# CUDA_VISIBLE_DEVICES="3" sh ./scripts/flame/dump_folder.sh
+
 #!/usr/bin/env bash
 # echo "Running inference on" ${1}
 # echo "Saving Results :" ${2}
