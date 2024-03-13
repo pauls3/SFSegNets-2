@@ -38,8 +38,8 @@ save_log('log', log_dir, date_str, rank=0)
 
 # get net
 # args.dataset_cls = cityscapes
-args.dataset_cls = rtisrail22
-# args.dataset_cls = flame
+# args.dataset_cls = rtisrail22
+args.dataset_cls = flame
 net = get_net(args, criterion=None)
 net = torch.nn.DataParallel(net).cuda()
 logging.info('Net built.')
