@@ -70,32 +70,32 @@ for img_id, img_name in enumerate(images):
     # predict
     with torch.no_grad():
         pred = net(x=img_tensor.unsqueeze(0).cuda())
-    #     logging.info('%04d/%04d: Inference done.' % (img_id + 1, len(images)))
+        logging.info('%04d/%04d: Inference done.' % (img_id + 1, len(images)))
 
-    # # final mask
-    # pred = pred.cpu().numpy().squeeze()
-    # pred = np.argmax(pred, axis=0)
+    # final mask
+    pred = pred.cpu().numpy().squeeze()
+    pred = np.argmax(pred, axis=0)
 
-    # # final mask
-    # # color_name = 'color_mask_' + img_name
-    # # overlap_name = 'overlap_' + img_name
-    # temp_name = os.path.splitext(img_name)[0]
-    # # if len(temp_name) == 2:
-    # #     temp_name = '0' + temp_name
-    # # elif len(temp_name) == 1:
-    # #     temp_name = '00' + temp_name
-    # color_name = 'color_mask_' + temp_name + '.png'
-    # overlap_name = 'overlap_' + temp_name + '.png'
+    # final mask
+    # color_name = 'color_mask_' + img_name
+    # overlap_name = 'overlap_' + img_name
+    temp_name = os.path.splitext(img_name)[0]
+    # if len(temp_name) == 2:
+    #     temp_name = '0' + temp_name
+    # elif len(temp_name) == 1:
+    #     temp_name = '00' + temp_name
+    color_name = 'color_mask_' + temp_name + '.png'
+    overlap_name = 'overlap_' + temp_name + '.png'
 
 
 
-    # # save colorized predictions
-    # colorized = args.dataset_cls.colorize_mask(pred)
-    # colorized.save(os.path.join(args.save_dir, color_name))
+    # save colorized predictions
+    colorized = args.dataset_cls.colorize_mask(pred)
+    colorized.save(os.path.join(args.save_dir, color_name))
 
-    # # save colorized predictions overlapped on original images
-    # overlap = cv2.addWeighted(np.array(img), 0.5, np.array(colorized.convert('RGB')), 0.5, 0)
-    # cv2.imwrite(os.path.join(args.save_dir, overlap_name), overlap[:, :, ::-1])
+    # save colorized predictions overlapped on original images
+    overlap = cv2.addWeighted(np.array(img), 0.5, np.array(colorized.convert('RGB')), 0.5, 0)
+    cv2.imwrite(os.path.join(args.save_dir, overlap_name), overlap[:, :, ::-1])
 
 
 end_time = time.time()
